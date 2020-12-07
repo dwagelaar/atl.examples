@@ -1,7 +1,7 @@
 # atl.examples
 Eclipse ATL/EMFTVM example transformations
 
-This repository contains several Eclipse ATL example projects that can be imported into your Eclipse workspace. Just clone this repository, and import the whole repository as Eclipse projects like this:
+This repository contains several Eclipse ATL example projects that can be imported into your Eclipse workspace. It is assumed you've got your [Eclipse IDE](https://www.eclipse.org/downloads/) installed together with the [ATL](https://www.eclipse.org/atl/) plug-ins. Just clone this repository, and import the whole repository as Eclipse projects like this:
 
   1. Click the green "Code / Clone" button above, and click the clipboard icon next to the repo URI to copy it to the clipboard
   2. Open your Eclipse IDE
