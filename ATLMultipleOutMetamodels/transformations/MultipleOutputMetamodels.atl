@@ -1,0 +1,17 @@
+-- @atlcompiler emftvm
+-- @path MM1=/ATLMultipleOutMetamodels/metamodels/MM1.ecore
+-- @path MM2=/ATLMultipleOutMetamodels/metamodels/MM2.ecore
+module MultipleOutputMetamodels;
+create OUT1 : MM1, OUT2 : MM2 from IN : MM1;
+
+rule Element {
+	from
+		s : MM1!Element
+	to
+		e1 : MM1!Element (
+			name <- s.name
+		),
+		e2 : MM2!Element (
+			secondName <- s.name
+		)
+}
