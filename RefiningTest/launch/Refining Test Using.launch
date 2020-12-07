@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.emftvm.launcher.EMFTVMTransformation">
+<stringAttribute key="ATL File Name" value="//RefiningTest/transformations/RefiningTestUsing.atl"/>
+<booleanAttribute key="Disable JIT compiler" value="false"/>
+<booleanAttribute key="Display Profiling Data" value="false"/>
+<booleanAttribute key="Display Timing Data" value="true"/>
+<mapAttribute key="Inout Model Options">
+<mapEntry key="M1" value="allowIntermodelReferences derivedFile"/>
+<mapEntry key="trace" value="createNewModel"/>
+</mapAttribute>
+<mapAttribute key="Inout Models">
+<mapEntry key="M1" value="platform:/resource/RefiningTest/models/ModelA.xmi"/>
+<mapEntry key="trace" value="platform:/resource/RefiningTest/models/ModelA-refined.trace"/>
+</mapAttribute>
+<mapAttribute key="Inout Models Output Locations">
+<mapEntry key="M1" value="platform:/resource/RefiningTest/models/ModelA-refinedUsing.xmi"/>
+<mapEntry key="trace" value="platform:/resource/RefiningTest/models/ModelA-refinedUsing.trace"/>
+</mapAttribute>
+<mapAttribute key="Input Model Options"/>
+<mapAttribute key="Input Models">
+<mapEntry key="M2" value="platform:/resource/RefiningTest/models/ModelB.xmi"/>
+</mapAttribute>
+<mapAttribute key="Metamodel Options"/>
+<mapAttribute key="Metamodels">
+<mapEntry key="MODELA" value="platform:/resource/RefiningTest/metamodels/ModelA.ecore"/>
+<mapEntry key="MODELB" value="platform:/resource/RefiningTest/metamodels/ModelB.ecore"/>
+</mapAttribute>
+<stringAttribute key="Module Name" value="RefiningTestUsing"/>
+<stringAttribute key="Module Path" value="/RefiningTest/transformations/"/>
+<mapAttribute key="Output Model Options"/>
+<mapAttribute key="Output Models"/>
+<listAttribute key="Superimpose"/>
+</launchConfiguration>

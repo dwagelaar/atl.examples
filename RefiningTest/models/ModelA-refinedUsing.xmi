@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modela:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:modela="platform:/resource/RefiningTest/metamodels/ModelA.ecore">
+  <atts name="first">
+    <children name="a"/>
+    <children name="b"/>
+  </atts>
+  <atts name="second" att2Tag="modelB">
+    <children name="1"/>
+    <children name="2"/>
+    <children name="3"/>
+  </atts>
+  <atts name="third" att2Tag="modelBAgain">
+    <children name="x"/>
+  </atts>
+</modela:Model>

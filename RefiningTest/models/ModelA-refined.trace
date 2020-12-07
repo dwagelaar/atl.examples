@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<trace:TraceLinkSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http://www.eclipse.org/m2m/atl/emftvm/2011/Trace">
+  <rules rule="rule1">
+    <links>
+      <sourceElements name="att1" mapsToSelf="true">
+        <object href="ModelA.xmi#//@atts.1"/>
+      </sourceElements>
+      <sourceElements name="att2">
+        <object href="ModelB.xmi#//@atts.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="att1" mapsToSelf="true">
+        <object href="ModelA.xmi#//@atts.2"/>
+      </sourceElements>
+      <sourceElements name="att2">
+        <object href="ModelB.xmi#//@atts.1"/>
+      </sourceElements>
+    </links>
+  </rules>
+  <defaultSourceElementLists sourceElements="//@rules.0/@links.0/@sourceElements.0 //@rules.0/@links.0/@sourceElements.1"/>
+  <defaultSourceElementLists sourceElements="//@rules.0/@links.1/@sourceElements.0 //@rules.0/@links.1/@sourceElements.1"/>
+</trace:TraceLinkSet>

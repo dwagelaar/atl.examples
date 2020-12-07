@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modelb:Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:modelb="platform:/resource/RefiningTest/metamodels/ModelB.ecore">
+  <atts name="second"
+      tag="modelB"/>
+  <atts name="third"
+      tag="modelBAgain"/>
+</modelb:Model>

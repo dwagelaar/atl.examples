@@ -1,0 +1,18 @@
+-- @atlcompiler emftvm
+-- @path MODELA=/RefiningTest/metamodels/ModelA.ecore
+-- @path MODELB=/RefiningTest/metamodels/ModelB.ecore
+module RefiningTest;
+create OUT: MODELA refining M1: MODELA, M2 : MODELB;
+
+rule rule1 {
+	from 
+		att1 : MODELA!Att1 in M1,
+		att2 : MODELB!Att2 in M2 (
+			att1.name = att2.name
+		)
+	to 
+		atout : MODELA!Att1 mapsTo att1 (
+			name <- att1.name,
+			att2Tag <- att2.tag
+		)
+}

@@ -1,0 +1,22 @@
+-- @atlcompiler emftvm
+-- @path MODELA=/RefiningTest/metamodels/ModelA.ecore
+-- @path MODELB=/RefiningTest/metamodels/ModelB.ecore
+module RefiningTestUsing;
+create OUT: MODELA refining M1: MODELA, M2 : MODELB;
+
+rule rule1 {
+	from 
+		att1 : MODELA!Att1 in M1 (
+			MODELB!Att2.allInstancesFrom('M2')
+				->exists(a2 | a2.name = att1.name)
+		)
+	using {
+		att2 : MODELB!Att2 = MODELB!Att2.allInstancesFrom('M2')
+			->any(a2 | a2.name = att1.name);
+	}
+	to 
+		atout : MODELA!Att1 mapsTo att1 (
+			name <- att1.name,
+			att2Tag <- att2.tag
+		)
+}
