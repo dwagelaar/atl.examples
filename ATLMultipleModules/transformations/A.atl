@@ -1,0 +1,14 @@
+-- @atlcompiler emftvm
+-- @nsURI UML=http://www.eclipse.org/uml2/5.0.0/UML
+-- @nsURI ECORE=http://www.eclipse.org/emf/2002/Ecore
+module A;
+create OUT : ECORE from IN : UML;
+
+rule Class2EClass {
+	from
+		s : UML!Class
+	to
+		t : ECORE!EClass (
+			name <- s.name
+		)
+}

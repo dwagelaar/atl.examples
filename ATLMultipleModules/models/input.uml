@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_eGoc8DhjEeuQjPwBb5jNyQ" name="input">
+  <packagedElement xmi:type="uml:Package" xmi:id="_izf0sDhjEeuQjPwBb5jNyQ" name="package">
+    <packagedElement xmi:type="uml:Class" xmi:id="_cB8y8DhkEeuQjPwBb5jNyQ" name="Person"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_eCuX4DhkEeuQjPwBb5jNyQ" name="String"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_phgvYDhkEeuQjPwBb5jNyQ" name="Address"/>
+  </packagedElement>
+</uml:Model>
