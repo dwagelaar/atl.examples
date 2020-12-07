@@ -1,0 +1,5 @@
+-- @atlcompiler emftvm
+library "lib::Helpers";
+
+helper context String def : jumble : String =
+	self.concat('Jumble');

@@ -1,0 +1,15 @@
+-- @atlcompiler emftvm
+-- @nsURI ECORE=http://www.eclipse.org/emf/2002/Ecore
+module "modules::ClassNames";
+create OUT : ECORE refining IN : ECORE;
+
+uses "lib::Helpers";
+
+rule ClassName {
+	from
+		s : ECORE!EClass
+	to
+		t : ECORE!EClass (
+			name <- s.name.jumble
+		)
+}
