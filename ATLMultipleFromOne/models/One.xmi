@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:one="platform:/resource/ATLMultipleFromOne/metamodels/One.ecore"
+    xsi:schemaLocation="platform:/resource/ATLMultipleFromOne/metamodels/One.ecore ../metamodels/One.ecore">
+  <one:Element1
+      references="/2 /3 /4"/>
+  <one:Element1
+      references="/8 /7 /6 /5"/>
+  <one:Element2/>
+  <one:Element2/>
+  <one:Element2/>
+  <one:Element2/>
+  <one:Element2/>
+  <one:Element2/>
+  <one:Element2/>
+</xmi:XMI>

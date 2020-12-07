@@ -1,0 +1,35 @@
+-- @atlcompiler emftvm
+-- @path ONE=/ATLMultipleFromOne/metamodels/One.ecore
+-- @path MULTIPLE=/ATLMultipleFromOne/metamodels/Multiple.ecore
+module MultipleFromOne;
+create OUT: MULTIPLE from IN: ONE;
+
+rule Element1 {
+	from
+		s: ONE!Element1
+	to
+		t: MULTIPLE!Element1
+	do {
+		for (r in s.references) {
+			thisModule.Element3(s, r);
+		}
+	}
+}
+
+rule Element2 {
+	from
+		s: ONE!Element2
+	to
+		t: MULTIPLE!Element2
+}
+
+unique lazy rule Element3 {
+	from
+		e1: ONE!Element1,
+		e2: ONE!Element2
+	to
+		t: MULTIPLE!Element3 (
+			source <- e1,
+			target <- e2
+		)
+}
