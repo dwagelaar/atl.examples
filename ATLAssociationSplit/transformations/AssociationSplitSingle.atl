@@ -1,0 +1,45 @@
+-- @atlcompiler emftvm
+-- @path INSINGLE=/ATLAssociationSplit/metamodels/insingle.ecore
+-- @path OUTSINGLE=/ATLAssociationSplit/metamodels/outsingle.ecore
+module AssociationSplitSingle;
+create OUT : OUTSINGLE from IN : INSINGLE;
+
+
+
+rule AtoC {
+	from
+		s : INSINGLE!A
+	to
+		t : OUTSINGLE!C (
+			kon <-
+				if s.con.isD then
+					s.con
+				else
+					OclUndefined
+				endif,
+			hon <-
+				if s.con.isD then
+					OclUndefined
+				else
+					s.con
+				endif
+		)
+}
+
+rule BtoD {
+	from
+		s : INSINGLE!B (
+			s.isD
+		)
+	to
+		t : OUTSINGLE!D
+}
+
+rule BtoE {
+	from
+		s : INSINGLE!B (
+			not s.isD
+		)
+	to
+		t : OUTSINGLE!E
+}

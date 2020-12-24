@@ -1,0 +1,35 @@
+-- @atlcompiler emftvm
+-- @path INMULTIPLE=/ATLAssociationSplit/metamodels/inmultiple.ecore
+-- @path OUTMULTIPLE=/ATLAssociationSplit/metamodels/outmultiple.ecore
+module AssociationSplitMultiple;
+create OUT : OUTMULTIPLE from IN : INMULTIPLE;
+
+
+
+rule AtoC {
+	from
+		s : INMULTIPLE!A
+	to
+		t : OUTMULTIPLE!C (
+			kon <- s.con->select(b | b.isD),
+			hon <- s.con->reject(b | b.isD)
+		)
+}
+
+rule BtoD {
+	from
+		s : INMULTIPLE!B (
+			s.isD
+		)
+	to
+		t : OUTMULTIPLE!D
+}
+
+rule BtoE {
+	from
+		s : INMULTIPLE!B (
+			not s.isD
+		)
+	to
+		t : OUTMULTIPLE!E
+}

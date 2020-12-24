@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inmultiple:A
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:inmultiple="platform:/resource/ATLAssociationSplit/metamodels/inmultiple.ecore">
+  <con isD="true"/>
+  <con isD="true"/>
+  <con/>
+  <con/>
+  <con isD="true"/>
+</inmultiple:A>
