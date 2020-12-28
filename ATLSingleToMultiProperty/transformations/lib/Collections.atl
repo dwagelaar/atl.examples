@@ -1,0 +1,34 @@
+-- @atlcompiler emftvm
+library "lib::Collections";
+
+--- Returns 'self' wrapped in a Sequence, or an empty Sequence if 'self' is OclUndefined.
+helper context OclAny def : asSequence() : Sequence(OclAny) =
+	if self.oclIsUndefined() then
+		Sequence{}
+	else
+		Sequence{self}
+	endif;
+
+--- Returns 'self' wrapped in a Set, or an empty Set if 'self' is OclUndefined.
+helper context OclAny def : asSet() : Set(OclAny) =
+	if self.oclIsUndefined() then
+		Set{}
+	else
+		Set{self}
+	endif;
+
+--- Returns 'self' wrapped in a OrderedSet, or an empty OrderedSet if 'self' is OclUndefined.
+helper context OclAny def : asOrderedSet() : OrderedSet(OclAny) =
+	if self.oclIsUndefined() then
+		OrderedSet{}
+	else
+		OrderedSet{self}
+	endif;
+
+--- Returns 'self' wrapped in a Bag, or an empty Bag if 'self' is OclUndefined.
+helper context OclAny def : asBag() : Bag(OclAny) =
+	if self.oclIsUndefined() then
+		Bag{}
+	else
+		Bag{self}
+	endif;

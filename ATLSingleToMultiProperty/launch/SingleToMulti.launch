@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.emftvm.launcher.EMFTVMTransformation">
+    <stringAttribute key="ATL File Name" value="//ATLSingleToMultiProperty/transformations/SingleToMulti.atl"/>
+    <booleanAttribute key="Disable JIT compiler" value="false"/>
+    <booleanAttribute key="Display Profiling Data" value="false"/>
+    <booleanAttribute key="Display Timing Data" value="true"/>
+    <mapAttribute key="Inout Model Options"/>
+    <mapAttribute key="Inout Models"/>
+    <mapAttribute key="Inout Models Output Locations"/>
+    <mapAttribute key="Input Model Options"/>
+    <mapAttribute key="Input Models">
+        <mapEntry key="IN" value="platform:/resource/ATLSingleToMultiProperty/models/SingleEntity.xmi"/>
+    </mapAttribute>
+    <mapAttribute key="Metamodel Options"/>
+    <mapAttribute key="Metamodels">
+        <mapEntry key="MULTI" value="platform:/resource/ATLSingleToMultiProperty/metamodels/Multi.ecore"/>
+        <mapEntry key="SINGLE" value="platform:/resource/ATLSingleToMultiProperty/metamodels/Single.ecore"/>
+    </mapAttribute>
+    <stringAttribute key="Module Name" value="SingleToMulti"/>
+    <stringAttribute key="Module Path" value="/ATLSingleToMultiProperty/transformations/"/>
+    <mapAttribute key="Output Model Options">
+        <mapEntry key="OUT" value="derivedFile"/>
+    </mapAttribute>
+    <mapAttribute key="Output Models">
+        <mapEntry key="OUT" value="platform:/resource/ATLSingleToMultiProperty/models/MultiEntity.xmi"/>
+    </mapAttribute>
+    <listAttribute key="Superimpose">
+        <listEntry value="//ATLSingleToMultiProperty/transformations/lib/Collections.asm"/>
+    </listAttribute>
+</launchConfiguration>

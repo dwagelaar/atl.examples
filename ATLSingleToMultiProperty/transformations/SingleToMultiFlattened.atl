@@ -1,0 +1,33 @@
+-- @atlcompiler emftvm
+-- @path SINGLE=/ATLSingleToMultiProperty/metamodels/Single.ecore
+-- @path MULTI=/ATLSingleToMultiProperty/metamodels/Multi.ecore
+-- @lib lib::Collections=/ATLSingleToMultiProperty/transformations/lib/Collections.atl
+module SingleToMultiFlattened;
+create OUT : MULTI from IN : SINGLE;
+
+uses "lib::Collections";
+
+--- Returns the transitive closure of all owned entities.
+helper context SINGLE!Entity def : allOwnedEntities : Sequence(SINGLE!Entity) =
+	let ownedEntities : Sequence(SINGLE!Entity) = self.ownedEntity.asSequence() in
+	ownedEntities->union(ownedEntities->collect(o | o.allOwnedEntities)->flatten());
+
+rule Entity {
+	from
+		s : SINGLE!Entity
+	to
+		t : MULTI!Entity (
+			name <- s.name
+		)
+}
+
+rule RootEntity extends Entity {
+	from
+		s : SINGLE!Entity (
+			s.owner.oclIsUndefined()
+		)
+	to
+		t : MULTI!Entity (
+			ownedEntity <- s.allOwnedEntities
+		)
+}

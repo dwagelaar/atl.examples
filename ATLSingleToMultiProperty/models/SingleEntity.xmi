@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<single:Entity
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:single="platform:/resource/ATLSingleToMultiProperty/metamodels/Single.ecore"
+    name="A">
+  <ownedEntity
+      name="B">
+    <ownedEntity
+        name="C">
+      <ownedEntity
+          name="D">
+        <ownedEntity
+            name="E"/>
+      </ownedEntity>
+    </ownedEntity>
+  </ownedEntity>
+</single:Entity>

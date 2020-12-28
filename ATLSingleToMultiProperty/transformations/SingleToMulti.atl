@@ -1,0 +1,18 @@
+-- @atlcompiler emftvm
+-- @path SINGLE=/ATLSingleToMultiProperty/metamodels/Single.ecore
+-- @path MULTI=/ATLSingleToMultiProperty/metamodels/Multi.ecore
+-- @lib lib::Collections=/ATLSingleToMultiProperty/transformations/lib/Collections.atl
+module SingleToMulti;
+create OUT : MULTI from IN : SINGLE;
+
+uses "lib::Collections";
+
+rule Entity {
+	from
+		s : SINGLE!Entity
+	to
+		t : MULTI!Entity (
+			name <- s.name,
+			ownedEntity <- s.ownedEntity.asSequence()
+		)
+}
