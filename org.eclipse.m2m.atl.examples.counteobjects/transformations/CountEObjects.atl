@@ -1,0 +1,15 @@
+-- @atlcompiler emftvm
+-- @nsURI ECORE=http://www.eclipse.org/emf/2002/Ecore
+module CountEObjects;
+create OUT : ECORE from IN : ECORE;
+
+endpoint rule CountEObjects() {
+	to
+		p : ECORE!EPackage (
+			name <- 'countEObjects',
+			eAnnotations <- Sequence{a}
+		),
+		a : ECORE!EAnnotation (
+			source <- ECORE!EObject.allInstancesFrom('IN')->size().toString()
+		)
+}

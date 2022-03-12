@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.eclipse.ui.popupMenus">
+    <objectContribution
+      adaptable="true"
+      id="org.eclipse.m2m.atl.examples.counteobjects.objectContribution"
+      objectClass="org.eclipse.core.resources.IFile">
+      <action
+        id="org.eclipse.m2m.atl.test-plugin.objectContribution.action" 
+        label="Count EObjects"
+        icon="icons/atl_logo.gif"
+        class="org.eclipse.m2m.atl.examples.counteobjects.PopupAction"> 
+      </action>
+    </objectContribution>
+  </extension>
+
+</plugin>
