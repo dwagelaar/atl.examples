@@ -1,0 +1,15 @@
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.BoldKeyword.Color=0,0,0
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.Bracket.Color=0,0,0
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.ContextKeyword.Color=129,46,156
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.Default.Color=0,0,0
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.Identifier.Color=0,0,0
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.Keyword.Color=127,0,85
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.Literal.Color=42,0,255
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.Number.Color=0,0,0
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.Operator.Color=0,0,0
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.SingleLineComment.Color=63,127,95
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.SingleLineSpecialComment.Color=63,95,191
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.String.Color=42,0,255
+/instance/org.eclipse.m2m.atl.adt.editor/Atl.Syntax.Symbol.Color=0,0,0
+/instance/org.eclipse.m2m.atl.adt.editor/currentLineColor=225,235,224
+
