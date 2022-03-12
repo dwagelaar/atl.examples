@@ -24,7 +24,8 @@ public class CountEObjects implements Function<IFile, Model> {
 	public CountEObjects() {
 		execEnvPool.registerMetaModel(EcorePackage.eNAME.toUpperCase(), EMFTVMUtil.getEcoreMetamodel());
 		execEnvPool.setModuleResolverFactory(
-				new DefaultModuleResolverFactory("platform:/plugin/org.eclipse.m2m.atl.test-plugin/transformations/"));
+				new DefaultModuleResolverFactory(
+						"platform:/plugin/org.eclipse.m2m.atl.examples.counteobjects/transformations/"));
 		execEnvPool.loadModule("CountEObjects");
 	}
 
