@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Atl-test-plugin
+Bundle-Name: Count EObjects example ATL plug-in
 Bundle-SymbolicName: org.eclipse.m2m.atl.examples.counteobjects;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Automatic-Module-Name: org.eclipse.m2m.atl.test.plugin
+Automatic-Module-Name: org.eclipse.m2m.atl.examples.counteobjects
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.eclipse.ui,
  org.eclipse.m2m.atl.emftvm;bundle-version="4.5.0",
