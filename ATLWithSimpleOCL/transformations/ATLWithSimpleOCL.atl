@@ -1,0 +1,40 @@
+-- @atlcompiler emftvm
+-- @nsURI ECORE=http://www.eclipse.org/emf/2002/Ecore
+module ATLWithSimpleOCL;
+
+create OUT : ECORE from IN : ECORE;
+
+uses Helpers;
+
+helper context ECORE!EClassifier def : default : ECORE!EClassifier =
+  thisModule.DefaultClass(self);
+
+rule Package {
+	from
+		s : ECORE!EPackage
+	to
+		t : ECORE!EPackage (
+			name <- s.name,
+			nsURI <- s.nsURI,
+			nsPrefix <- s.nsPrefix,
+			eClassifiers <- s.eClassifiers->selectOrDefault(e | e.namedTest)
+		)
+}
+
+rule Class {
+	from
+		s : ECORE!EClass (s.namedTest)
+	to
+		t : ECORE!EClass (
+			name <- s.name
+		)
+}
+
+unique lazy rule DefaultClass {
+	from
+		s : ECORE!EClassifier
+	to
+		t : ECORE!EClass (
+			name <- 'Default'
+		)
+}

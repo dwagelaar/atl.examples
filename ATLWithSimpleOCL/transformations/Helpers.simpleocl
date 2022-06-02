@@ -1,0 +1,12 @@
+module Helpers;
+
+metamodel ECORE:'http://www.eclipse.org/emf/2002/Ecore';
+
+context ECORE!EClassifier def : namedTest : Boolean =
+  self.name = 'Test';
+
+context ECORE!EClassifier def : default : ECORE!EClassifier =
+  self;
+
+context Sequence(ECORE!EClassifier) def : selectOrDefault(selector : Lambda(ECORE!EClassifier):Boolean) : Sequence(ECORE!EClassifier) =
+  self->collect(e | if selector(e) then e else e.default endif);
