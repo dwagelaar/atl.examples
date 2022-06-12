@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<targetMM:Target xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:targetMM="platform:/resource/ATLTracingBypass/metamodels/TargetMM.ecore" target="/">
+  <source href="Source.xmi#/"/>
+</targetMM:Target>

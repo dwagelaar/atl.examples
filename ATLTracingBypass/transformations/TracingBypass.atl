@@ -1,0 +1,15 @@
+-- @atlcompiler emftvm
+-- @path SourceMM=/ATLTracingBypass/metamodels/SourceMM.ecore
+-- @path TargetMM=/ATLTracingBypass/metamodels/TargetMM.ecore
+module TracingBypass;
+create OUT : TargetMM from IN : SourceMM;
+
+rule Source2Target {
+	from
+		source : SourceMM!Source
+	to
+		target : TargetMM!Target (
+			source <:= source,
+			target <- target
+		)
+}
