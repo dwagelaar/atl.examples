@@ -1,0 +1,28 @@
+-- @atlcompiler emftvm
+-- @nsURI ECORE=http://www.eclipse.org/emf/2002/Ecore
+module ATLGlobalIncrement;
+create OUT : ECORE from IN : ECORE;
+
+helper def : counter : Integer = 0;
+
+rule EPackage {
+	from
+		s : ECORE!EPackage
+	to
+		t : ECORE!EPackage (
+			name <- s.name + 'Counter',
+			eClassifiers <- s.eClassifiers->select(c | c.oclIsKindOf(ECORE!EClass)),
+			eSubpackages <- s.eSubpackages
+		)
+}
+
+rule EClass {
+	from
+		s : ECORE!EClass
+	to
+		t : ECORE!EClass
+	do {
+		thisModule.counter <- thisModule.counter + 1;
+		t.name <- thisModule.counter.toString().debug('counter');
+	}
+}

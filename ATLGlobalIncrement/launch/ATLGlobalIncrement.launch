@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.emftvm.launcher.EMFTVMTransformation">
+    <stringAttribute key="ATL File Name" value="//ATLGlobalIncrement/transformations/ATLGlobalIncrement.atl"/>
+    <booleanAttribute key="Disable JIT compiler" value="false"/>
+    <booleanAttribute key="Display Profiling Data" value="false"/>
+    <booleanAttribute key="Display Timing Data" value="true"/>
+    <mapAttribute key="Inout Model Options"/>
+    <mapAttribute key="Inout Models"/>
+    <mapAttribute key="Inout Models Output Locations"/>
+    <mapAttribute key="Input Model Options"/>
+    <mapAttribute key="Input Models">
+        <mapEntry key="IN" value="http://www.eclipse.org/gmt/2005/ATL"/>
+    </mapAttribute>
+    <mapAttribute key="Metamodel Options">
+        <mapEntry key="ECORE" value="isMetametamodel"/>
+    </mapAttribute>
+    <mapAttribute key="Metamodels">
+        <mapEntry key="ECORE" value=""/>
+    </mapAttribute>
+    <stringAttribute key="Module Name" value="ATLGlobalIncrement"/>
+    <stringAttribute key="Module Path" value="/ATLGlobalIncrement/transformations/"/>
+    <mapAttribute key="Output Model Options">
+        <mapEntry key="OUT" value="derivedFile"/>
+    </mapAttribute>
+    <mapAttribute key="Output Models">
+        <mapEntry key="OUT" value="platform:/resource/ATLGlobalIncrement/models/Counter.ecore"/>
+    </mapAttribute>
+    <listAttribute key="Superimpose"/>
+</launchConfiguration>
