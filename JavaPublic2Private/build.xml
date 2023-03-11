@@ -22,4 +22,11 @@
 		<gunzip src="${basedir}/models/eclipseModel-1.0.xmi.gz"/>
     </target>
 
+    <!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean" description="Cleans the project">
+    	<delete dir="${basedir}/models/" includes="*.xmi"/>
+    </target>
+
 </project>
