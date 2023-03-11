@@ -1,5 +1,5 @@
 # JavaPublic2Private
-This example Eclipse project runs the "Public 2 Private" case study from [LinTra](https://atenea.lcc.uma.es/projects/LinTra.html). It includes the original transformation code, as well as an improved version.
+This example Eclipse project runs the "Public 2 Private" case study from [LinTra](https://atenea.lcc.uma.es/projects/LinTra.html). It includes the original transformation code, as well as an improved version. Note that the improved version of the transformation must be compiled with [ATL/EMFTVM](https://wiki.eclipse.org/ATL/EMFTVM) 4.8.0 or higher to benefit from the [search plan generation](https://bugs.eclipse.org/bugs/show_bug.cgi?id=581655).
 
 ## Runtimes
 
