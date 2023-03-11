@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     11 mrt. 2023 23:51:38                                                        
+
+     JavaPublic2Priuvate    
+     Prepares the project for use inside Eclipse
+                   
+     Dennis Wagelaar <dwagelaar@gmail.com>                                                                
+     ====================================================================== -->
+<project name="JavaPublic2Priuvate" default="default">
+    <description>
+            Prepares the project for use inside Eclipse
+    </description>
+
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" description="Prepares the project for use inside Eclipse">
+    	<gunzip src="${basedir}/models/eclipseModel-0.1.xmi.gz"/>
+    	<gunzip src="${basedir}/models/eclipseModel-0.2.xmi.gz"/>
+    	<gunzip src="${basedir}/models/eclipseModel-0.5.xmi.gz"/>
+		<gunzip src="${basedir}/models/eclipseModel-1.0.xmi.gz"/>
+    </target>
+
+</project>

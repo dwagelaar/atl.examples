@@ -1,0 +1,121 @@
+-- @atlcompiler emftvm
+-- @path UML=/Public2Private/metamodel/java.ecore
+
+module Public2Private;
+create OUT : Java refining IN : Java;
+
+--Rule to delete comments
+rule DeleteComment {
+	from
+		c : Java!Comment 
+	to
+}
+
+rule Public2Private{
+	from
+		m : Java!Modifier (m.visibility = #public)
+	to
+		m2 : Java!Modifier(
+			visibility <- #private	
+		)	
+}
+
+rule CreateGetter{
+	from
+		vdf : Java!VariableDeclarationFragment
+		   (Java!FieldDeclaration.allInstances() -> exists(fr|not fr.modifier.oclIsUndefined() and fr.modifier.visibility=#public and fr.fragments -> includes(vdf)))
+	using{
+		fd : Java!FieldDeclaration = Java!FieldDeclaration.allInstances() -> select(fdec|not fdec.modifier.oclIsUndefined() and fdec.modifier.visibility=#public and fdec.fragments -> includes(vdf)) -> first();	
+	}
+	to
+		vdf2 : Java!VariableDeclarationFragment,
+		--- For the GETTER
+		getter : Java!MethodDeclaration(
+			name <- 'get' + vdf.name.substring(1,1).toUpper() + vdf.name.substring(2,vdf.name.size()),
+			modifier <- mdf,
+			body <- block,
+			returnType <- rt
+		),
+		mdf : Java!Modifier(
+			visibility <- #private	
+		),
+		block : Java!Block(
+			originalCompilationUnit <- vdf.originalCompilationUnit,
+			statements <- Sequence{st}
+		),
+		st : Java!ReturnStatement(
+			originalCompilationUnit <- vdf.originalCompilationUnit,
+			expression <- exp
+		),
+		exp : Java!SingleVariableAccess(
+			variable <- vdf
+		),
+		rt : Java!TypeAccess(
+			type <- vdf.variablesContainer.type.type	
+		),
+		--- For the SETTER
+		setter : Java!MethodDeclaration(
+			name <- 'set' + vdf.name.substring(1,1).toUpper() + vdf.name.substring(2,vdf.name.size()),
+			modifier <- mdf2,
+			body <- block2,
+			parameters <- Sequence{p},
+			returnType <- t2
+		),
+		mdf2 : Java!Modifier(
+			visibility <- #private	
+		),
+		block2 : Java!Block(
+			originalCompilationUnit <- vdf.originalCompilationUnit,
+			statements <- Sequence{st2}
+		),
+		st2 : Java!ExpressionStatement(
+			originalCompilationUnit <- vdf.originalCompilationUnit,
+			expression <- exp2
+		),
+		exp2 : Java!Assignment(
+			originalCompilationUnit <- vdf.originalCompilationUnit,
+			operator <- #ASSIGN,
+			leftHandSide <- lhs,
+			rightHandSide <- rhs
+		),
+		lhs : Java!FieldAccess(
+			originalCompilationUnit <- vdf.originalCompilationUnit,
+			field <- f,
+			expression <- exp3
+		),
+		f : Java!SingleVariableAccess(
+			variable <- vdf	
+		),
+		exp3 : Java!ThisExpression(
+			originalCompilationUnit <- vdf.originalCompilationUnit	
+		),
+		rhs : Java!SingleVariableAccess(
+			variable <- vdf	
+		),
+		p : Java!SingleVariableDeclaration(
+			name <- vdf.name,
+			originalCompilationUnit <- vdf.originalCompilationUnit,
+			usageInVariableAccess <- Sequence{rhs}, --I have asked Loli about to which SingleVariableAccess this attribute has to point to...
+			modifier <- mdf3,
+			methodDeclaration <- setter,
+			type <- t
+		),
+		mdf3 : Java!Modifier(
+			visibility <- #none,
+			singleVariableDeclaration <- p
+		),
+		t : Java!TypeAccess(
+			type <- vdf.variablesContainer.type.type	
+		),
+		t2 : Java!TypeAccess(
+			type <- Java!Model.allInstances() -> first() .orphanTypes -> select(t|t.name='void') -> first()
+		)
+	do{
+		-- For including the created methods in the corresponding class
+		for (c in Java!ClassDeclaration.allInstances()){
+			if (c.bodyDeclarations -> includes(fd)){
+				c.bodyDeclarations <- c.bodyDeclarations -> union(Sequence{getter,setter});
+			}
+		}	
+	}
+}
