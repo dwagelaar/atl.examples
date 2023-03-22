@@ -1,0 +1,16 @@
+Atl.CodeAssist.AutoActivation.Enable=true
+Atl.Syntax.BoldKeyword.Color=211,215,207
+Atl.Syntax.Bracket.Color=211,215,207
+Atl.Syntax.ContextKeyword.Color=63,188,191
+Atl.Syntax.Default.Color=211,215,207
+Atl.Syntax.Identifier.Color=211,215,207
+Atl.Syntax.Keyword.Color=166,96,19
+Atl.Syntax.Literal.Color=114,159,207
+Atl.Syntax.Number.Color=211,215,207
+Atl.Syntax.Operator.Color=211,215,207
+Atl.Syntax.SingleLineComment.Color=101,192,129
+Atl.Syntax.SingleLineSpecialComment.Color=114,159,207
+Atl.Syntax.String.Color=114,159,207
+Atl.Syntax.Symbol.Color=211,215,207
+currentLineColor=32,74,135
+eclipse.preferences.version=1

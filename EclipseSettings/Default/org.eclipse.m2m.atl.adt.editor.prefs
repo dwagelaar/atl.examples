@@ -1,0 +1,15 @@
+Atl.Syntax.BoldKeyword.Color=0,0,0
+Atl.Syntax.Bracket.Color=0,0,0
+Atl.Syntax.ContextKeyword.Color=129,46,156
+Atl.Syntax.Default.Color=0,0,0
+Atl.Syntax.Identifier.Color=0,0,0
+Atl.Syntax.Keyword.Color=127,0,85
+Atl.Syntax.Literal.Color=42,0,255
+Atl.Syntax.Number.Color=0,0,0
+Atl.Syntax.Operator.Color=0,0,0
+Atl.Syntax.SingleLineComment.Color=63,127,95
+Atl.Syntax.SingleLineSpecialComment.Color=63,95,191
+Atl.Syntax.String.Color=42,0,255
+Atl.Syntax.Symbol.Color=0,0,0
+currentLineColor=225,235,224
+eclipse.preferences.version=1

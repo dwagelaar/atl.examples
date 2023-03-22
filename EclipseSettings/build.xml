@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     22 mrt. 2023 22:54:06                                                        
+
+     EclipseSettings    
+     installs selected Eclipse settings into the current workspace
+
+     Dennis Wagelaar <dwagelaar@gmail.com>
+     ====================================================================== -->
+<project name="EclipseSettings" default="default">
+	<description>
+            installs selected Eclipse settings into the current workspace
+    </description>
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="default" description="installs selected Eclipse settings into the current workspace">
+		<copy todir="${workspace}/.metadata/.plugins/org.eclipse.core.runtime/.settings" overwrite="true">
+			<fileset dir="${basedir}/Default" id="default">
+				<include name="*"/>
+			</fileset>
+		</copy>
+		<echo>Restart your Eclipse to apply the installed settings.</echo>
+	</target>
+
+	<!-- ================================= 
+          target: darkmode              
+         ================================= -->
+	<target name="darkmode" description="installs selected Eclipse settings into the current workspace">
+		<copy todir="${workspace}/.metadata/.plugins/org.eclipse.core.runtime/.settings" overwrite="true">
+			<fileset dir="${basedir}/DarkMode" id="default">
+				<include name="*"/>
+			</fileset>
+		</copy>
+		<echo>Restart your Eclipse to apply the installed settings.</echo>
+	</target>
+
+</project>
