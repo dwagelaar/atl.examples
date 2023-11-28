@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="model" nsPrefix="model">
+  <eClassifiers xsi:type="ecore:EClass" name="Root"/>
+  <eSubpackages name="nested" nsURI="nested" nsPrefix="nested">
+    <eClassifiers xsi:type="ecore:EClass" name="Nested"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Interface" abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Abstract" abstract="true"/>
+  </eSubpackages>
+</ecore:EPackage>

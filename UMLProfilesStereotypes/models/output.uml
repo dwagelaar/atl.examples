@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_KxD70I3jEe6DDfhMO1QHag" name="model">
+    <packagedElement xmi:type="uml:Package" xmi:id="_KxD70Y3jEe6DDfhMO1QHag" name="nested">
+      <packagedElement xmi:type="uml:Class" xmi:id="_KxD7043jEe6DDfhMO1QHag" name="Nested"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_KxD71Y3jEe6DDfhMO1QHag" name="Interface" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KxD71I3jEe6DDfhMO1QHag" name="Abstract" isAbstract="true"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_KxD70o3jEe6DDfhMO1QHag" name="Root"/>
+    <profileApplication xmi:id="_KxEi4I3jEe6DDfhMO1QHag">
+      <eAnnotations xmi:id="_KxEi4Y3jEe6DDfhMO1QHag" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:Auxiliary xmi:id="_KxeykI3jEe6DDfhMO1QHag" base_Class="_KxD70o3jEe6DDfhMO1QHag"/>
+  <standard:Auxiliary xmi:id="_KxeykY3jEe6DDfhMO1QHag" base_Class="_KxD7043jEe6DDfhMO1QHag"/>
+  <standard:Auxiliary xmi:id="_Kxeyko3jEe6DDfhMO1QHag" base_Class="_KxD71I3jEe6DDfhMO1QHag"/>
+</xmi:XMI>

@@ -1,0 +1,92 @@
+-- @atlcompiler emftvm
+-- @nsURI ECORE=http://www.eclipse.org/emf/2002/Ecore
+-- @nsURI UML=http://www.eclipse.org/uml2/5.0.0/UML
+-- PROFILE=pathmap://UML_PROFILES/Standard.profile.uml
+module UMLProfilesStereotypes;
+
+create OUT : UML from IN : ECORE, PROFILE : UML;
+
+helper def : standardProfile : UML!Profile =
+	UML!Profile.allInstancesFrom('PROFILE')->any(p | p.name = 'StandardProfile').debug();
+
+helper def : auxiliaryStereotype : UML!Profile =
+	UML!Stereotype.allInstancesFrom('PROFILE')->any(p | p.name = 'Auxiliary').debug();
+
+rule EPackageToModel {
+	from
+		s : ECORE!EPackage (
+			s.refImmediateComposite().oclIsUndefined()
+		)
+	to
+		t : UML!Model (
+			name <- s.name,
+			packagedElement <- s.eSubpackages->union(s.eClassifiers)
+		)
+	do {
+		-- The UML metamodel has built-in, active consistency checks that
+		-- will not let you apply a Stereotype to an Element, unless its
+		-- Profile has been applied to the Model containing the Element.
+		-- This consistency check can only succeed when the transformed
+		-- UML model is structurally complete, i.e. all  model elements
+		-- have been created and connected to each other.
+		-- It is for this reason that Profiles/Stereotypes must be applied in
+		-- "do" blocks, such that EMFTVM is guaranteed to have executed
+		-- all "from" and "to" sections that create and connect all model
+		-- elements.
+		t.applyProfile(thisModule.standardProfile);
+	}
+}
+
+rule EPackageToPackage {
+	from
+		s : ECORE!EPackage (
+			not s.refImmediateComposite().oclIsUndefined()
+		)
+	to
+		t : UML!Package (
+			name <- s.name,
+			packagedElement <- s.eSubpackages->union(s.eClassifiers)
+		)
+}
+
+rule EClassToClass {
+	from
+		s : ECORE!EClass (
+			not s.interface
+		)
+	to
+		t : UML!Class (
+			isAbstract <- s."abstract",
+			name <- s.name
+		)
+	do {
+		-- Profiles must be applied BEFORE any Stereotypes contained within
+		-- that profile, because of UML metamodel consistency checking:
+		-- because EMFTVM executes module rules in (local) order, it is
+		-- guaranteed that the "EPackageToModel" rule's "do" block is
+		-- executed BEFORE this rule's "do" block.
+		t.applyStereotype(thisModule.auxiliaryStereotype);
+	}
+}
+
+rule EClassToInterface {
+	from
+		s : ECORE!EClass (
+			s.interface
+		)
+	to
+		t : UML!Interface (
+			isAbstract <- s."abstract",
+			name <- s.name
+		)
+}
+
+rule EDataTypeToDataType {
+	from
+		s : ECORE!EDataType
+	to
+		t : UML!DataType (
+			isAbstract <- s."abstract",
+			name <- s.name
+		)
+}
