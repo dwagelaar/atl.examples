@@ -1,0 +1,2 @@
+-- @atlcompiler emftvm
+query InputModels = thisModule.getEnv().getInputModels().keySet().debug();
